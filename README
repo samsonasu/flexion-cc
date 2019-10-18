@@ -1,0 +1,15 @@
+# Setup
+
+    bundle install
+
+
+# Run the thing
+
+    ruby app.rb
+
+# Run tests (not useful for grading, more for TDD)
+
+    rspec spec
+
+
+
