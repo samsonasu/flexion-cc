@@ -55,17 +55,21 @@ class Converter
     end
     
     raise "No Unit map found for #{source_unit} => #{target_unit}" if unit_map.nil?
-    Converter.new(unit_map)
+    converter = Converter.new(unit_map)
+    converter.source_unit = source_unit
+    converter.target_unit = target_unit
+
+    return converter
   end
   
   def convert(value, source_unit=nil, target_unit=nil) 
     @source_unit = source_unit unless source_unit.nil?
     @target_unit = target_unit unless target_unit.nil?
 
-    source_true = unit_map[source_unit][0].call(value.to_f)
-    target = unit_map[target_unit][1].call(source_true)
+    source_true = unit_map[@source_unit][0].call(value.to_f)
+    target = unit_map[@target_unit][1].call(source_true)
 
-    puts "CONVERT #{value} #{source_unit} (#{source_true}) to #{target_unit} = #{target}"
+    puts "CONVERT #{value} #{@source_unit} (#{source_true}) to #{@target_unit} = #{target}"
     return target
   end
   

@@ -4,7 +4,7 @@ require_relative '../grader'
 describe Grader do
 
   describe "converter" do
-    let(:grader) { Grader.new("1", "Fahrenheit", "1", "Celcius") }
+    let(:grader) { Grader.new("1", "Fahrenheit", "1", "Celsius") }
     it "gets the correct converter for temp" do
       expect(grader.converter.unit_map).to eq Converter::TEMPERATURE
     end
@@ -22,7 +22,7 @@ describe Grader do
       { in: "136.1", in_unit: "dog ", out_unit: "Celsius", out: "45.32", result: "invalid" }
     ].each_with_index do |ex, i|
       
-      xit "Scores example #{i+1} as #{ex[:result]}" do
+      it "Scores example #{i+1} (#{ex[:in]} #{ex[:in_unit]} => #{ex[:out]} #{ex[:out_unit]}) as '#{ex[:result]}'" do
         grader = Grader.new(ex[:in], ex[:in_unit], ex[:out], ex[:out_unit])
         expect(grader.grade).to eq ex[:result]
       end
