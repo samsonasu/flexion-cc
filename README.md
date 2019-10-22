@@ -1,3 +1,15 @@
+
+# Architecture
+
+This app helps teacher evaluate and grade students who are filling out unit conversion worksheets.  The worksheets are drilling conversions for both temperature and volume. 
+
+The teacher boots up the app, inputs the question as well as the student's answer and the the program determines if the student's answer is correct, rounding to the nearest tenth. 
+
+The main unit conversion logic lives in [Converter](./converter.rb), while [Grader](./grader.rb) holds the grading logic.  
+
+The main UI is a [command line interface](./app.rb) that runs on the command line.
+
+
 # Setup
 
 ## Install ruby 
@@ -20,6 +32,7 @@ https://rvm.io or similar.  This was written using ruby 2.6.3
 
     docker build -t samsonasu/gradeapp .
     docker run -it samsonasu/gradeapp
+
 
 # TODO
 
