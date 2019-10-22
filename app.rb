@@ -1,5 +1,6 @@
 require "./chooser"
 require "./converter"
+require "./grader"
 
 # Input loop
 
@@ -23,5 +24,4 @@ puts "What was the student's answer?"
 target_answer = gets.chomp
 
 grader = Grader.new(converter)
-
 puts grader.grade(source_value, source_unit, target_answer, target_unit)

@@ -1,8 +1,18 @@
 class Grader
-  def initialize(converter)
-    @converter = converter
+  attr_accessor :source, :source_unit, :target, :target_unit
+  def initialize(source, source_unit, target, target_unit)  
+    @source = source
+    @source_unit = source_unit
+    @target = target
+    @target_unit = target_unit
   end
-  def grade(source_value, source_unit, target_answer, target_unit)  
+
+
+  def converter
+    Converter.for_units(@source_unit, @target_unit)
+  end
+
+  def blah
     if target_answer.to_f.to_s != target_answer && target_answer.to_f.to_i.to_s != target_answer
       puts "Student answer was INVALID"
       return "INVALID"

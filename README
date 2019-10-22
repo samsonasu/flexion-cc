@@ -1,13 +1,17 @@
 # Setup
 
+## Install ruby 
+https://rvm.io or similar.  This was written using ruby 2.6.3
+
+## Install dependencies: 
+
     bundle install
 
-
-# Run the thing
+## Run the app: 
 
     ruby app.rb
 
-# Run tests (not useful for grading, more for TDD)
+## Run tests 
 
     rspec spec
 
