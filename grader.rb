@@ -16,15 +16,9 @@ class Grader
       puts "Student answer was not a number"
       return "incorrect"
     end
-    target_value = @target.to_f
-    
+    target_value = @target.to_f    
     target_true = converter.convert(@source_value)
-    # correct, incorrect, or invalid
-    # source_true = conversions[domain][source_unit].call(source_value.to_f)
-    # target_true = conversions[domain][target_unit].call(source_value.to_f)
-    
-    puts "STUDENT said #{target_value} == #{target_true} and that is:\n"
-    
+        
     if @source_value.to_f - target_true <= 0.1
       "correct"
     else
