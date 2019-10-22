@@ -5,11 +5,11 @@ describe Converter do
   describe "Sets the unit_map correctly for different units" do 
 
     it "Chooses temperature map for temperature units" do
-      expect(Converter.for_units("Kelvin", "Fahrenheit").unit_map).to eq Converter::TEMPERATURE
+      expect(Converter.for_units("Kelvin", "Fahrenheit").unit_map).to eq Converter::UnitMap::TEMPERATURE
     end
 
     it "Chooses volumne for volumne units" do 
-      expect(Converter.for_units("Cups", "gallons").unit_map).to eq Converter::VOLUME
+      expect(Converter.for_units("Cups", "gallons").unit_map).to eq Converter::UnitMap::VOLUME
     end
 
     it "Raises an exception if there's no unit map" do
@@ -19,7 +19,7 @@ describe Converter do
 
   describe "Converting Temperatures" do
     let(:converter) do 
-      Converter.new(Converter::TEMPERATURE)
+      Converter.new(Converter::UnitMap::TEMPERATURE)
     end
 
     it "converts Kevlin to Celsius" do 
@@ -37,7 +37,7 @@ describe Converter do
 
   describe "Converting Volumes" do
     let(:converter) do 
-      Converter.new(Converter::VOLUME)
+      Converter.new(Converter::UnitMap::VOLUME)
     end
     it "converts cups to liters" do 
       expect(converter.convert(1, "Cups", "Liters")).to be_within(0.01).of 0.236588

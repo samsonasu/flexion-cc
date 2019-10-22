@@ -6,7 +6,7 @@ describe Grader do
   describe "converter" do
     let(:grader) { Grader.new("1", "Fahrenheit", "1", "Celsius") }
     it "gets the correct converter for temp" do
-      expect(grader.converter.unit_map).to eq Converter::TEMPERATURE
+      expect(grader.converter.unit_map).to eq Converter::UnitMap::TEMPERATURE
     end
   end
   

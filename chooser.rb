@@ -10,6 +10,8 @@ class Chooser
       puts "\t (#{i+1}) #{choice}"
     end
 
+    print "> "
+
     while (input = gets.chomp ) do
       if input.to_i.to_s == input
         return @choices[input.to_i-1]
