@@ -6,7 +6,7 @@ class Converter
   attr_reader :unit_map
 
   TEMPERATURE = {
-    "Kelvin" => [
+    "Kelvin" => [  # reference unit
       lambda { |v|  v },
       lambda { |v|  v }
     ],
@@ -25,21 +25,30 @@ class Converter
   }
 
   VOLUME = {
-    "Liters" => 1, 
-    "Tablespoons" => 2,
-    "Cubic Inches" => 3, 
-    "Cups" => 4, 
-    "Cubic Feet" => 5,
-    "Gallons" => 6
-  }
-
-  VOLUME_INVERSE = {
-    "Liters" => 1, 
-    "Tablespoons" => 2,
-    "Cubic Inches" => 3, 
-    "Cups" => 4, 
-    "Cubic Feet" => 5,
-    "Gallons" => 6
+    "Liters" => [
+      lambda { |v| v}, 
+      lambda { |v| v}
+    ], 
+    "Tablespoons" => [
+      lambda { |v| v / 67.628 },
+      lambda { |v| v * 67.628 }
+    ],
+    "Cubic Inches" => [
+      lambda { |v| v /  61.024 },
+      lambda { |v| v *  61.024 }
+    ],
+    "Cups" => [
+      lambda { |v| v / 4.227 },
+      lambda { |v| v * 4.227 }
+    ], 
+    "Cubic Feet" => [
+      lambda { |v| v * 28.317 },
+      lambda { |v| v / 28.317 }
+    ], 
+    "Gallons" => [
+      lambda { |v| v * 3.78541 },
+      lambda { |v| v / 3.78541 }
+    ]
   }
 
   def initialize(unit_map)

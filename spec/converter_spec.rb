@@ -22,10 +22,36 @@ describe Converter do
       Converter.new(Converter::TEMPERATURE)
     end
 
-    it "converts temperatures" do 
+    it "converts Kevlin to Celsius" do 
       expect(converter.convert(1, "Kelvin", "Celsius")).to eq -272.15
+    end
+    it "converts Fahrenheit to Celsius" do
       expect(converter.convert(32, "Fahrenheit", "Celsius")).to eq 0
+    end
+
+    it "converts Fahrenheit to Rankine" do
       expect(converter.convert(84.2, "Fahrenheit", "Rankine")).to eq 543.87
+    end
+
+  end
+
+  describe "Converting Volumes" do
+    let(:converter) do 
+      Converter.new(Converter::VOLUME)
+    end
+    it "converts cups to liters" do 
+      expect(converter.convert(1, "Cups", "Liters")).to be_within(0.01).of 0.236588
+    end
+    it "converts tablespoons to liters" do 
+      expect(converter.convert(5, "Tablespoons", "Liters")).to be_within(0.01).of 0.0739338
+    end
+
+    it "converts gallons to cubic inches" do 
+      expect(converter.convert(18, "Gallons", "Cubic Inches")).to be_within(1).of 4158
+    end
+
+    it "converts cubic feet to cubic inches" do 
+      expect(converter.convert(3, "Cubic Feet", "Cubic Inches")).to be_within(1).of 5184
     end
   end
 end
