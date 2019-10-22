@@ -17,9 +17,9 @@ class Grader
       return "incorrect"
     end
     target_value = @target.to_f    
-    target_true = converter.convert(@source_value)
+    target_true = converter.convert(@source)
         
-    if @source_value.to_f - target_true <= 0.1
+    if target_value.to_f.round(1) == target_true.round(1)
       "correct"
     else
       "incorrect"
