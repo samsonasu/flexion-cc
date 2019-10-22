@@ -5,8 +5,9 @@ class Converter
   attr_accessor :source_unit, :target_unit
   attr_reader :unit_map
 
+  # lambdas convert to and from the first value
   TEMPERATURE = {
-    "Kelvin" => [  # reference unit
+    "Kelvin" => [  
       lambda { |v|  v },
       lambda { |v|  v }
     ],

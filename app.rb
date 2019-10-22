@@ -5,8 +5,6 @@ require "./grader"
 # Input loop
 
 puts "Welcome to CovertApp2000!"
-
-# lambdas convert to the [0] value
 conversions = {
   "Temperature" => Converter::TEMPERATURE,
   "Volume" => Converter::VOLUME
